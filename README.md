@@ -1,5 +1,8 @@
 # Atlas Data Toolkit
 
+[![CI](https://github.com/AtlasNexusOps/datatoolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/AtlasNexusOps/datatoolkit/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+
+
 Small, dependency-light CLI for converting, validating, cleaning and batching operational data files.
 
 Atlas Data Toolkit is the productized version of the earlier `datatoolkit` prototype. It is intentionally simple: one Python CLI that helps turn messy CSV/JSON/YAML/XML files into clean handoff artifacts for dashboards, automations and client data pipelines.
