@@ -1,6 +1,7 @@
 # Atlas Data Toolkit
 
 [![CI](https://github.com/AtlasNexusOps/datatoolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/AtlasNexusOps/datatoolkit/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+[![PyPI](https://img.shields.io/pypi/v/atlas-datatoolkit?color=blue)](https://pypi.org/project/atlas-datatoolkit/)
 
 
 Small, dependency-light CLI for converting, validating, cleaning and batching operational data files.
