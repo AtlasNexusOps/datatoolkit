@@ -39,10 +39,26 @@ See [README-portable.md](README-portable.md) for full details.
 
 ## Install
 
+### 🐍 pip (any OS)
 ```bash
-git clone https://github.com/AtlasNexusTech/datatoolkit.git
-cd datatoolkit
-pip install -r requirements.txt
+pip install atlas-datatoolkit
+```
+
+### 🪟 Windows .exe (zero dependencies — no Python needed)
+```batch
+curl -sL https://raw.githubusercontent.com/AtlasNexusTech/datatoolkit/master/install.bat | cmd
+```
+Or download [`datatoolkit.exe`](https://github.com/AtlasNexusTech/datatoolkit/releases/latest)
+
+### 📱 Android (Termux)
+```bash
+curl -sL https://raw.githubusercontent.com/AtlasNexusTech/datatoolkit/master/install-android.sh | bash
+```
+
+### 📦 Portable script (any OS with Python 3.9+)
+Download [`datatoolkit-portable-v0.1.0.zip`](https://github.com/AtlasNexusTech/datatoolkit/releases/download/v0.1.0/datatoolkit-portable-v0.1.0.zip), extract, run:
+```bash
+python datatoolkit-portable.py convert data.csv -o data.json
 ```
 
 ## CLI examples
@@ -51,19 +67,19 @@ pip install -r requirements.txt
 
 ```bash
 # JSON → CSV
-python dtk.py convert data.json -o data.csv
+datatoolkit convert data.json -o data.csv
 
 # CSV → JSON with cleanup
-python dtk.py convert messy.csv -o clean.json --clean
+datatoolkit convert messy.csv -o clean.json --clean
 
 # YAML → XML
-python dtk.py convert config.yaml -f xml -o config.xml
+datatoolkit convert config.yaml -f xml -o config.xml
 ```
 
 ### Validate a dataset
 
 ```bash
-python dtk.py validate data.csv
+datatoolkit validate data.csv
 ```
 
 Example output:
@@ -88,16 +104,16 @@ Example output:
 
 ```bash
 # Deduplicate + normalize numeric strings
-python dtk.py clean messy.csv -o clean.csv
+datatoolkit clean messy.csv -o clean.csv
 
 # Normalize only, keep duplicates
-python dtk.py clean data.json -o normalized.json --no-dedup
+datatoolkit clean data.json -o normalized.json --no-dedup
 ```
 
 ### Split into batches
 
 ```bash
-python dtk.py batch big.csv 100 ./chunks/
+datatoolkit batch big.csv 100 ./chunks/
 ```
 
 Output:
