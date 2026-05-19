@@ -1,12 +1,33 @@
 # Atlas Data Toolkit
 
-[![CI](https://github.com/AtlasNexusOps/datatoolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/AtlasNexusOps/datatoolkit/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/AtlasNexusTech/datatoolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/AtlasNexusTech/datatoolkit/actions) [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 [![PyPI](https://img.shields.io/pypi/v/atlas-datatoolkit?color=blue)](https://pypi.org/project/atlas-datatoolkit/)
 
 
 Small, dependency-light CLI for converting, validating, cleaning and batching operational data files.
 
 Atlas Data Toolkit is the productized version of the earlier `datatoolkit` prototype. It is intentionally simple: one Python CLI that helps turn messy CSV/JSON/YAML/XML files into clean handoff artifacts for dashboards, automations and client data pipelines.
+
+
+## Portable Edition (no pip needed)
+
+For **Windows, Android (Termux), or any machine without pip**:
+
+1. Download [`datatoolkit-portable-v0.1.0.zip`](https://github.com/AtlasNexusTech/datatoolkit/releases/download/v0.1.0/datatoolkit-portable-v0.1.0.zip)
+2. Extract anywhere
+3. Run with `python datatoolkit-portable.py <command>`
+
+```bash
+# Windows
+python datatoolkit-portable.py convert data.csv -o data.json
+
+# Android (Termux)
+python datatoolkit-portable.py validate data.csv
+```
+
+JSON and CSV work out of the box. YAML needs `pip install pyyaml`. XML is bundled.
+
+See [README-portable.md](README-portable.md) for full details.
 
 ## Use cases
 
@@ -19,7 +40,7 @@ Atlas Data Toolkit is the productized version of the earlier `datatoolkit` proto
 ## Install
 
 ```bash
-git clone https://github.com/AtlasNexusOps/datatoolkit.git
+git clone https://github.com/AtlasNexusTech/datatoolkit.git
 cd datatoolkit
 pip install -r requirements.txt
 ```
