@@ -6,8 +6,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-release:
     runs-on: windows-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -16,32 +18,16 @@ jobs:
           python-version: "3.12"
 
       - name: Install deps
-        run: |
-          pip install pyyaml xmltodict pyinstaller
+        run: pip install pyyaml xmltodict pyinstaller
 
       - name: Build .exe
         run: |
-          pyinstaller --onefile --name datatoolkit --console `
-            --add-data "vendor/xmltodict.py;vendor" `
-            src/datatoolkit/cli.py
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: datatoolkit-windows
-          path: dist/datatoolkit.exe
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: datatoolkit-windows
+          pyinstaller --onefile --name datatoolkit --console src/datatoolkit/cli.py
+          dir dist
 
       - name: Upload to Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: datatoolkit.exe
+        shell: bash
+        run: |
+          gh release upload v0.1.0 dist/datatoolkit.exe --clobber --repo ${{ github.repository }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
